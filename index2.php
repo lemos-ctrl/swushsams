@@ -14,7 +14,7 @@
   <section class="loginpage">
     <div class="container">
       <div>
-        <img src="././Resources/swubg.jpg" class="img-fluid loginbg" />
+        <img src="Resources\swubg2.png" class="img-fluid loginbg" />
         <div class="black-film"></div>
       </div>
 
@@ -22,7 +22,7 @@
         <div class="col-4">
           <div class="login-frame">
 
-            <form action="./Admin/dashboard.php" method="post">
+            <form action="Teacher\schedule.php" method="post">
               <div class="row flex-column text-center align-items-center">
                 <div class="col-4">
                   <img src="./Resources/swuphinmared.png" class="logoswu img-fluid" alt="swulogo" />
@@ -37,10 +37,10 @@
                   <input type="password" name="txtpass" id="pass" placeholder="Password" />
                 </div>
                 <div class="col">
-                  <input type="submit" name="submit" value="Login" href="./Admin/Pages/dashboard.php" />
+                  <input type="submit" value="Login" />
                 </div>
                 <div class="p-3">
-                  <a href="#"> Forgot password?</a>
+                  <a href="#">Forgot password?</a>
                 </div>
               </div>
             </form>

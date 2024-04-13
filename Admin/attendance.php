@@ -236,7 +236,7 @@ include_once '../includes/cdn.php'; ?>
                                                         <option value="1">Excel File</option>
                                                         <option value="2">PDF</option>
                                                     </select>
-                                                    <label for="role" class="mt-2">Data to Generate</label>
+                                                    <label for="role" class="mtgit -2">Data to Generate</label>
                                                     <select id="role" class="form-select" aria-label="Role">
                                                         <option value="1">Daily Attendance</option>
                                                         <option value="2">Weekly Attendance</option>
