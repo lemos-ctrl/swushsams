@@ -86,7 +86,11 @@ include_once '../includes/cdn.php'; ?>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            ...
+                                            <label for="role">Export As</label>
+                                            <select id="role" class="form-select" aria-label="Role">
+                                                <option value="1">Excel File</option>
+                                                <option value="2">PDF</option>
+                                            </select>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -166,7 +170,11 @@ include_once '../includes/cdn.php'; ?>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            ...
+                                            <label for="role">Export As</label>
+                                            <select id="role" class="form-select" aria-label="Role">
+                                                <option value="1">Excel File</option>
+                                                <option value="2">PDF</option>
+                                            </select>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -177,49 +185,43 @@ include_once '../includes/cdn.php'; ?>
                             </div>
                         </div>
 
+
+
                         <h2 class="text-left" style="color: maroon;">Attendance Report - Monthly</h2>
                         <div class="table-responsive">
                             <table id="example3" style="width:100%" class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th class="dt-head-left">Employee ID</th>
-                                        <th>Login Time</th>
-                                        <th>Logout Time</th>
-                                        <th>Profile</th>
+                                        <th>Category</th>
+                                        <th>Value</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><i class="fa-solid fa-user"></i><Span> Tiger Nixon</Span></td>
-                                        <td class="dt-body-left">684564531</td>
-                                        <td>7:00 am</td>
-                                        <td>6:00 pm</td>
-
-
-                                        <td><a href="#" class="view-link" data-bs-toggle="modal" data-bs-target="#profileModal">View</a></td>
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-xl">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Profile</h1>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <?php
-                                                        include_once '../includes/profile.php'; ?>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
+                                        <td>Total Workdays</td>
+                                        <td>20</td>
                                     </tr>
-
-
+                                    <tr>
+                                        <td>Total Employees</td>
+                                        <td>36</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Average Attendance Rate (%)</td>
+                                        <td>90</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total Absences</td>
+                                        <td>200</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total Late Arrivals</td>
+                                        <td>100</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total Overtime Hours</td>
+                                        <td>500</td>
+                                    </tr>
+                                    <!-- Add more rows for additional categories -->
                                 </tbody>
                             </table>
 
@@ -237,7 +239,11 @@ include_once '../includes/cdn.php'; ?>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            ...
+                                            <label for="role">Export As</label>
+                                            <select id="role" class="form-select" aria-label="Role">
+                                                <option value="1">Excel File</option>
+                                                <option value="2">PDF</option>
+                                            </select>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -286,7 +292,7 @@ include_once '../includes/cdn.php'; ?>
     <script>
         $(function() {
             $(document).ready(function() {
-                $('#example3').DataTable();
+                $('#example3').DataTble(); //add "a" on DataTble to make it work again :)
             });
         });
     </script>
