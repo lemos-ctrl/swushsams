@@ -72,12 +72,12 @@ include_once '../includes/cdn.php'; ?>
                                 </tbody>
                             </table>
 
-                            <!-- Button trigger modal -->
+                            <!-- Button trigger modal
                             <a href="#" class="btn btn-secondary float-end mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 <i class="fa-solid fa-gears"></i> <span>Generate Attendance Report</span>
-                            </a>
+                            </a> -->
 
-                            <!-- Modal -->
+                            <!-- Modal
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
@@ -99,164 +99,162 @@ include_once '../includes/cdn.php'; ?>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
 
-                        <h2 class="text-left" style="color: maroon;">Attendance Report - Weekly</h2>
-                        <div class="table-responsive">
-                            <table id="example2" style="width:100%" class="table table-striped table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th class="dt-head-left">Date</th>
-                                        <th class="dt-head-left">Total Teachers</th>
-                                        <th class="dt-head-left">Average Attendance Rate (%)</th>
-                                        <th class="dt-head-left">Total Absences</th>
-                                        <th class="dt-head-left">Total Late Arrivals</th>
-                                        <!-- Add more columns as needed soon :) -->
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="dt-body-left">Monday, April 1</td>
-                                        <td class="dt-body-left">36</td>
-                                        <td class="dt-body-left">100</td>
-                                        <td class="dt-body-left">0</td>
-                                        <td class="dt-body-left">5</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="dt-body-left">Tuesday, April 2</td>
-                                        <td class="dt-body-left">36</td>
-                                        <td class="dt-body-left">100</td>
-                                        <td class="dt-body-left">0</td>
-                                        <td class="dt-body-left">5</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="dt-body-left">Wednesday, April 3</td>
-                                        <td class="dt-body-left">36</td>
-                                        <td class="dt-body-left">100</td>
-                                        <td class="dt-body-left">0</td>
-                                        <td class="dt-body-left">5</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="dt-body-left">Thursday, April 4</td>
-                                        <td class="dt-body-left">36</td>
-                                        <td class="dt-body-left">100</td>
-                                        <td class="dt-body-left">0</td>
-                                        <td class="dt-body-left">5</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="dt-body-left">Friday, April 5</td>
-                                        <td class="dt-body-left">36</td>
-                                        <td class="dt-body-left">100</td>
-                                        <td class="dt-body-left">0</td>
-                                        <td class="dt-body-left">5</td>
-                                    </tr>
+                            <h2 class="text-left" style="color: maroon;">Attendance Report - Weekly</h2>
+                            <div class="table-responsive">
+                                <table id="example2" style="width:100%" class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Category</th>
+                                            <th>Specifics</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Week Start Date</td>
+                                            <td>April 1, 2024</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Week End Date</td>
+                                            <td>April 7, 2024</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total Workdays</td>
+                                            <td>5</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total Employees</td>
+                                            <td>36</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Average Attendance Rate (%)</td>
+                                            <td>100</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total Absences</td>
+                                            <td>0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total Late Arrivals</td>
+                                            <td>0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total Overtime Hours</td>
+                                            <td>100</td>
+                                        </tr>
+                                        <!-- Add more rows for additional categories -->
+                                    </tbody>
+                                </table>
 
+                                <!-- Button trigger modal
+                                <a href="#" class="btn btn-secondary float-end mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i class="fa-solid fa-gears"></i> <span>Generate Attendance Report</span>
+                                </a> -->
 
-
-                                </tbody>
-                            </table>
-
-                            <!-- Button trigger modal -->
-                            <a href="#" class="btn btn-secondary float-end mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                <i class="fa-solid fa-gears"></i> <span>Generate Attendance Report</span>
-                            </a>
-
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Generate Attendance Report</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <label for="role">Export As</label>
-                                            <select id="role" class="form-select" aria-label="Role">
-                                                <option value="1">Excel File</option>
-                                                <option value="2">PDF</option>
-                                            </select>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                <!-- Modal
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Generate Attendance Report</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <label for="role">Export As</label>
+                                                <select id="role" class="form-select" aria-label="Role">
+                                                    <option value="1">Excel File</option>
+                                                    <option value="2">PDF</option>
+                                                </select>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                            </div> -->
 
 
 
-                        <h2 class="text-left" style="color: maroon;">Attendance Report - Monthly</h2>
-                        <div class="table-responsive">
-                            <table id="example3" style="width:100%" class="table table-striped table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>Category</th>
-                                        <th>Value</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Total Workdays</td>
-                                        <td>20</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Total Employees</td>
-                                        <td>36</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Average Attendance Rate (%)</td>
-                                        <td>90</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Total Absences</td>
-                                        <td>200</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Total Late Arrivals</td>
-                                        <td>100</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Total Overtime Hours</td>
-                                        <td>500</td>
-                                    </tr>
-                                    <!-- Add more rows for additional categories -->
-                                </tbody>
-                            </table>
+                                <h2 class="text-left" style="color: maroon;">Attendance Report - Monthly</h2>
+                                <div class="table-responsive">
+                                    <table id="example3" style="width:100%" class="table table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Category</th>
+                                                <th>Value</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Total Workdays</td>
+                                                <td>20</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Total Employees</td>
+                                                <td>36</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Average Attendance Rate (%)</td>
+                                                <td>90</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Total Absences</td>
+                                                <td>200</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Total Late Arrivals</td>
+                                                <td>100</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Total Overtime Hours</td>
+                                                <td>500</td>
+                                            </tr>
+                                            <!-- Add more rows for additional categories -->
+                                        </tbody>
+                                    </table>
 
-                            <!-- Button trigger modal -->
-                            <a href="#" class="btn btn-secondary float-end mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                <i class="fa-solid fa-gears"></i> <span>Generate Attendance Report</span>
-                            </a>
+                                    <!-- Button trigger modal -->
+                                    <a href="#" class="btn btn-secondary float-end mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <i class="fa-solid fa-gears"></i> <span>Generate Attendance Report</span>
+                                    </a>
 
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Generate Attendance Report</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <label for="role">Export As</label>
-                                            <select id="role" class="form-select" aria-label="Role">
-                                                <option value="1">Excel File</option>
-                                                <option value="2">PDF</option>
-                                            </select>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Generate Attendance Report</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+
+                                                <div class="modal-body">
+                                                    <label for="role">Export As</label>
+                                                    <select id="role" class="form-select" aria-label="Role">
+                                                        <option value="1">Excel File</option>
+                                                        <option value="2">PDF</option>
+                                                    </select>
+                                                    <label for="role" class="mt-2">Data to Generate</label>
+                                                    <select id="role" class="form-select" aria-label="Role">
+                                                        <option value="1">Daily Attendance</option>
+                                                        <option value="2">Weekly Attendance</option>
+                                                        <option value="3">Monthly Attendance</option>
+                                                    </select>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+
+
                             </div>
                         </div>
-
-
-                    </div>
-                </div>
 
 
 
@@ -285,7 +283,7 @@ include_once '../includes/cdn.php'; ?>
     <script>
         $(function() {
             $(document).ready(function() {
-                $('#example2').DataTable();
+                $('#example2').DataTble(); //add "a" on DataTble to make it work again :)
             });
         });
     </script>
