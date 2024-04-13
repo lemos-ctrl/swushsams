@@ -45,7 +45,7 @@ include_once '../includes/cdn.php'; ?>
                                         <h6 class="mb-0">Full Name</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        John Doe
+                                        Tiger Nixon
                                     </div>
                                 </div>
                                 <hr>
@@ -54,7 +54,7 @@ include_once '../includes/cdn.php'; ?>
                                         <h6 class="mb-0">Email</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        johndoe@email.com
+                                        tigernixon@email.com
                                     </div>
                                 </div>
                                 <hr>
@@ -94,23 +94,27 @@ include_once '../includes/cdn.php'; ?>
                         </div>
                     </div>
 
-                    <div class="card">
-                        <div id='calendar' class="mt-2"></div>
+                    <div class="row">
+                        <div class="card mx-2">
+                            <div class="col-md-12 my-3">
+                                <iframe src="https://calendar.google.com/calendar/embed?src=glemuelaaaa%40gmail.com&ctz=Asia%2FManila" style="border: 1" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+                            </div>
+                        </div>
                     </div>
-
-                    <script src='https://cdn.jsdelivr.net/npm/fullcalendar/index.global.min.js'></script>
-                    <script>
-                        document.addEventListener('DOMContentLoaded', function() {
-                            const calendarEl = document.getElementById('calendar')
-                            const calendar = new FullCalendar.Calendar(calendarEl, {
-                                initialView: 'dayGridMonth'
-                            })
-                            calendar.render()
-                        })
-                    </script>
 
 
                 </div>
+
+
+
+
+                <!-- Attendance Data overall here -->
+
+
+
+
+
+
 
             </main>
 
