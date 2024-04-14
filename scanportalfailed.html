@@ -120,12 +120,17 @@
 
   function displayEmployeeInfo(data) {
     var resultHtml = `
-      <div class="alert alert-success text-center" role="alert">
-        <p>Employee Data Found!</p>
+      <div class="alert alert-danger text-center" role="alert">
+        <p>Employee Data Not Found!</p>
+
+        <!--
         <p>Name: ${data.name}</p>
         <p>Role: ${data.role}</p>
         <p>Employee ID: ${data.employeeID}</p>
         <p>Type of Authentication: Login</p>
+        -->
+
+        <p>Try Again.</p>
       </div>`;
     $('#fingerprintResult').html(resultHtml);
   }
