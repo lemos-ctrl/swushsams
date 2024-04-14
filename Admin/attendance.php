@@ -223,7 +223,7 @@ include_once '../includes/cdn.php'; ?>
 
                                     <!-- Modal -->
                                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h1 class="modal-title fs-5" id="exampleModalLabel">Generate Attendance Report</h1>
@@ -231,18 +231,52 @@ include_once '../includes/cdn.php'; ?>
                                                 </div>
 
                                                 <div class="modal-body">
-                                                    <label for="role">Export As</label>
-                                                    <select id="role" class="form-select" aria-label="Role">
-                                                        <option value="1">Excel File</option>
-                                                        <option value="2">PDF</option>
+                                                    <label for="exportType">Export As</label>
+                                                    <select id="exportType" class="form-select" aria-label="Export Type">
+                                                        <option value="excel">Excel File</option>
+                                                        <option value="pdf">PDF</option>
                                                     </select>
-                                                    <label for="role" class="mtgit -2">Data to Generate</label>
-                                                    <select id="role" class="form-select" aria-label="Role">
-                                                        <option value="1">Daily Attendance</option>
-                                                        <option value="2">Weekly Attendance</option>
-                                                        <option value="3">Monthly Attendance</option>
+                                                    <label for="dataType" class="mt-2">Data to Generate</label>
+                                                    <select id="dataType" class="form-select" aria-label="Data Type">
+                                                        <option value="daily">Daily Attendance</option>
+                                                        <option value="weekly">Weekly Attendance</option>
+                                                        <option value="monthly">Monthly Attendance</option>
+                                                        <option value="custom">Custom</option>
                                                     </select>
+
+                                                    <div id="datePickerWrapper" style="display: none;">
+                                                        <label for="daterange" class="mt-2">Select Date Range</label>
+                                                        <input type="text" id="daterange" name="daterange" class="form-control" />
+                                                    </div>
+
+                                                    <script>
+                                                        $(document).ready(function() {
+                                                            // Function to show/hide date picker based on selected option
+                                                            $('#dataType').change(function() {
+                                                                var selectedOption = $(this).val();
+                                                                if (selectedOption === 'custom') {
+                                                                    $('#datePickerWrapper').show();
+                                                                } else {
+                                                                    $('#datePickerWrapper').hide();
+                                                                }
+                                                            });
+
+                                                            // Initialize date range picker
+                                                            $('input[name="daterange"]').daterangepicker({
+                                                                opens: 'left',
+                                                                startDate: moment().startOf('year'), // Set start date to beginning of current year
+                                                                endDate: moment(), // Set end date to current date
+                                                                locale: {
+                                                                    format: 'YYYY-MM-DD'
+                                                                }
+                                                            }, function(start, end, label) {
+                                                                console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+                                                            });
+                                                        });
+                                                    </script>
                                                 </div>
+
+
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                                     <button type="button" class="btn btn-primary">Save changes</button>
@@ -255,17 +289,8 @@ include_once '../includes/cdn.php'; ?>
 
                             </div>
                         </div>
-
-
-
-
-
-
-
-
-
-
-
+                    </div>
+                </div>
             </main>
         </div><!-- main -->
     </div><!-- wrapper -->
