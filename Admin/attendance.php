@@ -45,10 +45,10 @@ include_once '../includes/cdn.php'; ?>
                                         <td>7:00 am</td>
                                         <td>6:00 pm</td>
 
-
-                                        <td><a href="#" class="view-link" data-bs-toggle="modal" data-bs-target="#profileModal">View</a></td>
+                                        <td><a href="profile.php" class="view-link">View</a></td>
+                                        <!--td><a href="#" class="view-link" data-bs-toggle="modal" data-bs-target="#profileModal">View</a></td-->
                                         <!-- Modal -->
-                                        <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <!--div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-xl">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -56,8 +56,8 @@ include_once '../includes/cdn.php'; ?>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <?php
-                                                        include_once '../includes/profile.php'; ?>
+                                                        <?/*php
+                                                        include_once '../includes/profile.php';*/ ?>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -65,7 +65,7 @@ include_once '../includes/cdn.php'; ?>
                                                 </div>
                                             </div>
 
-                                        </div>
+                                        </div-->
                                     </tr>
 
 
