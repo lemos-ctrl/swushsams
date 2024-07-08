@@ -24,11 +24,42 @@ include_once '../includes/cdn.php'; ?>
                 </div>
             </nav>
 
+            <main class="content px-3 py-2 ">
+
+                <div class="container-fluid border border-primary">
+                    <div class="row">
+                        <div class="col-md-6 border border-dark">
+                            <canvas id="myChart"></canvas>
+                        </div>
+
+                        <div class=" col-md-6 border border-dark">
+                            <canvas id="myLineChart"></canvas>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6 border border-dark">
+                            <canvas id="myRadarChart"></canvas>
+                        </div>
+                        <div class="col-md-6 border border-dark">
+                            <canvas id="myRadarChart"></canvas>
+                        </div>
+                    </div>
+
+                </div>
+
+            </main>
+
 
 
         </div>
     </div>
     <script src="../Scripts/barchart.js"></script>
+    <script src="../Scripts/linegraph.js"></script>
+    <script src="../Scripts/radarchart.js"></script>
+
+
 </body>
 
 </html>
