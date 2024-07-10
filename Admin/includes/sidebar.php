@@ -24,7 +24,7 @@ require_once '../includes/cdn.php'; ?>
             </li>
             <li class="sidebar-item d-flex align-items-center <?php echo (strpos($_SERVER['REQUEST_URI'], 'leaves.php') !== false) ? 'active' : ''; ?>"> <a href="./leaves.php" class="sidebar-link">
                     <i class="fa-solid fa-person-running"></i>
-                    Leave Management
+                    Leave Monitoring
                 </a>
             </li>
             <li class="sidebar-item d-flex align-items-center <?php echo (strpos($_SERVER['REQUEST_URI'], 'master-data.php') !== false) ? 'active' : ''; ?>"> <a href="./master-data.php" class="sidebar-link">
@@ -33,8 +33,7 @@ require_once '../includes/cdn.php'; ?>
                 </a>
             </li>
             <li class="sidebar-item d-flex align-items-center <?php echo (strpos($_SERVER['REQUEST_URI'], 'settings.php') !== false) ? 'active' : ''; ?>"> <a href="./settings.php" class="sidebar-link">
-                    <i class="fa-solid fa-list pe-2"></i>
-                    Settings
+                    <i class="fa-solid fa-gear"></i> Settings
                 </a>
             </li>
             <!--  <li class="sidebar-item">
