@@ -32,13 +32,12 @@ require_once '../includes/cdn.php'; ?>
                     Master Data
                 </a>
             </li>
-            <!-- <li class="sidebar-item d-flex align-items-center">
-                        <a href="./settings.php" class="sidebar-link">
-                            <i class="fa-solid fa-list pe-2"></i>
-                            Settings
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
+            <li class="sidebar-item d-flex align-items-center <?php echo (strpos($_SERVER['REQUEST_URI'], 'settings.php') !== false) ? 'active' : ''; ?>"> <a href="./settings.php" class="sidebar-link">
+                    <i class="fa-solid fa-list pe-2"></i>
+                    Settings
+                </a>
+            </li>
+            <!--  <li class="sidebar-item">
                         <a href="#" class="sidebar-link collapsed" data-bs-target="#pages" data-bs-toggle="collapse"
                             aria-expanded="false"><i class="fa-solid fa-file-lines pe-2"></i>
                             Curriculum
