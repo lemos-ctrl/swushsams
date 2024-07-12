@@ -235,6 +235,7 @@ a.sidebar-link.sidebar-link-child {
   width: 20px;
 }
 
+
 .sidebar-link[data-bs-toggle="collapse"]::after {
   border: solid;
   border-width: 0 0.075rem 0.075rem 0;
@@ -247,6 +248,10 @@ a.sidebar-link.sidebar-link-child {
   top: 1.4rem;
   transform: rotate(-135deg);
   transition: all 0.2s ease-out;
+}
+
+.sidebar-link[data-bs-toggle="collapse"][aria-expanded="true"]::after {
+  transform: rotate(45deg);
 }
 
 /* CSS for active link */
@@ -852,3 +857,5 @@ td {
 }
 
 /* ------------------------------------------------------------------ */
+
+

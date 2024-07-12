@@ -17,11 +17,22 @@ require_once '../includes/cdn.php'; ?>
                     Dashboard
                 </a>
             </li>
-            <li class="sidebar-item d-flex align-items-center <?php echo (strpos($_SERVER['REQUEST_URI'], 'attendance.php') !== false) ? 'active' : ''; ?>"> <a href="./attendance.php" class="sidebar-link">
+
+
+            <li class="sidebar-item <?php echo (strpos($_SERVER['REQUEST_URI'], 'attendance.php') !== false) ? 'active' : ''; ?>">
+                <a href="#" class="sidebar-link" data-bs-toggle="collapse" data-bs-target="#auth" aria-expanded="<?php echo (in_array($current_page, ['attendance.php', 'loadScheduling.php', 'facultyLoading.php', 'roomAssignment.php', 'attendance.php'])) ? 'true' : 'false'; ?>">
                     <i class="fa-solid fa-clipboard-user"></i>
                     Attendance
                 </a>
+                <ul id="auth" class="sidebar-dropdown list-unstyled collapse <?php echo (in_array($current_page, ['attendance.php', 'loadScheduling.php', 'facultyLoading.php', 'roomAssignment.php', 'attendance.php'])) ? 'show' : ''; ?>">
+                    <li class="sidebar-item">
+                        <a href="./attendance.php" class="sidebar-link sidebar-link-child <?php echo ($current_page == 'attendance.php') ? 'active' : ''; ?>">Attendance For Today</a>
+                    </li>
+                </ul>
             </li>
+
+
+
             <li class="sidebar-item d-flex align-items-center <?php echo (strpos($_SERVER['REQUEST_URI'], 'leaves.php') !== false) ? 'active' : ''; ?>"> <a href="./leaves.php" class="sidebar-link">
                     <i class="fa-solid fa-person-running"></i>
                     Leave Monitoring
@@ -64,3 +75,22 @@ require_once '../includes/cdn.php'; ?>
         </ul>
     </div>
 </aside>
+
+
+
+<!-- this is a snippet code from kurt's side bar to make the dropdown work like a charm. fucking goat kurt :D -->
+<!--li class="sidebar-item">
+                        <a href="../Features/loadScheduling.php" class="sidebar-link sidebar-link-child <?php if ($current_page == 'loadScheduling.php')
+                                                                                                            echo 'active'; ?>">Load
+                            Scheduling</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="../Features/facultyLoading.php" class="sidebar-link sidebar-link-child <?php if ($current_page == 'facultyLoading.php')
+                                                                                                            echo 'active'; ?>">Faculty
+                            Loading</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="../Features/roomAssignment.php" class="sidebar-link sidebar-link-child <?php if ($current_page == 'roomAssignment.php')
+                                                                                                            echo 'active'; ?>">Room
+                            Assignment</a>
+</li-->
