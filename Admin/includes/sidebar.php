@@ -31,6 +31,29 @@ require_once '../includes/cdn.php'; ?>
                 </ul>
             </li>
 
+            <script>
+                $(document).ready(function() {
+                    $('.sidebar-link').click(function() {
+                        var target = $(this).data('bs-target');
+                        $(target).collapse('toggle');
+                    });
+
+
+                    $('.sidebar-link').click(function() {
+                        var parentDropdown = $(this).closest('.collapse');
+                        parentDropdown.collapse('hide');
+                    });
+
+
+                    $('.sidebar-link-child').click(function() {
+                        var parentDropdown = $(this).closest('.collapse');
+                        parentDropdown.collapse('hide');
+                    });
+
+
+                });
+            </script>
+
 
 
             <li class="sidebar-item d-flex align-items-center <?php echo (strpos($_SERVER['REQUEST_URI'], 'leaves.php') !== false) ? 'active' : ''; ?>"> <a href="./leaves.php" class="sidebar-link">
@@ -75,6 +98,10 @@ require_once '../includes/cdn.php'; ?>
         </ul>
     </div>
 </aside>
+
+
+
+
 
 
 
