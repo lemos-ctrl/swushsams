@@ -11,6 +11,7 @@ require_once '../includes/cdn.php'; ?>
             <li class="sidebar-header">
                 Admin Tools
             </li>
+
             <li class="sidebar-item d-flex align-items-center <?php echo (strpos($_SERVER['REQUEST_URI'], 'dashboard.php') !== false) ? 'active' : ''; ?>">
                 <a href="./dashboard.php" class="sidebar-link">
                     <i class="fa-solid fa-chart-line"></i>
@@ -30,29 +31,6 @@ require_once '../includes/cdn.php'; ?>
                     </li>
                 </ul>
             </li>
-
-            <script>
-                $(document).ready(function() {
-                    $('.sidebar-link').click(function() {
-                        var target = $(this).data('bs-target');
-                        $(target).collapse('toggle');
-                    });
-
-
-                    $('.sidebar-link').click(function() {
-                        var parentDropdown = $(this).closest('.collapse');
-                        parentDropdown.collapse('hide');
-                    });
-
-
-                    $('.sidebar-link-child').click(function() {
-                        var parentDropdown = $(this).closest('.collapse');
-                        parentDropdown.collapse('hide');
-                    });
-
-
-                });
-            </script>
 
 
 

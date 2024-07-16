@@ -11,17 +11,16 @@
 </head>
 
 <body>
-  <section class="loginpage">
-    <div class="container">
+  <section class="loginpage d-flex justify-content-center align-items-start vh-100">
+    <div class="container align-items-center">
       <div>
         <img src="././Resources/swubg.jpg" class="img-fluid loginbg" />
         <div class="black-film"></div>
       </div>
 
       <div class="row d-flex justify-content-center text-align-center login">
-        <div class="col-4">
+        <div class="col-4 col-4">
           <div class="login-frame">
-
             <form action="./Admin/dashboard.php" method="post">
               <div class="row flex-column text-center align-items-center">
                 <div class="col-4">
@@ -44,8 +43,10 @@
                 </div>
               </div>
             </form>
-
           </div>
+
+
+
         </div>
       </div>
       <span>© Southwestern University PHINMA 2024. All Rights Reserved | Design
