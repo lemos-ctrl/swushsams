@@ -856,6 +856,19 @@ td {
   text-align: left;
 }
 
+.chart-option {
+cursor: pointer;
+transition: transform 0.2s;
+}
+
+.chart-option:hover {
+transform: scale(1.05);
+}
+
+.selected {
+border: 2px solid maroon;
+}
+
 /* ------------------------------------------------------------------ */
 
 

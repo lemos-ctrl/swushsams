@@ -27,7 +27,13 @@ require_once '../includes/cdn.php'; ?>
                 </a>
                 <ul id="auth" class="sidebar-dropdown list-unstyled collapse <?php echo (in_array($current_page, ['attendance.php', 'loadScheduling.php', 'facultyLoading.php', 'roomAssignment.php', 'attendance.php'])) ? 'show' : ''; ?>">
                     <li class="sidebar-item">
-                        <a href="./attendance.php" class="sidebar-link sidebar-link-child <?php echo ($current_page == 'attendance.php') ? 'active' : ''; ?>">Attendance For Today</a>
+                        <a href="./aft.php" class="sidebar-link sidebar-link-child <?php echo ($current_page == 'aft.php') ? 'active' : ''; ?>">Attendance For Today</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="./afw.php" class="sidebar-link sidebar-link-child <?php echo ($current_page == 'afw.php') ? 'active' : ''; ?>">Attendance Report - Weekly</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="./afm.php" class="sidebar-link sidebar-link-child <?php echo ($current_page == 'afm.php') ? 'active' : ''; ?>">Attendance Report - Monthly</a>
                     </li>
                 </ul>
             </li>

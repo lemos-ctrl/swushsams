@@ -1,4 +1,32 @@
-document.addEventListener('DOMContentLoaded', function () {
+const ctx3 = document.getElementById('myRadarChart').getContext('2d');
+const myRadarChart = new Chart(ctx3, {
+    type: 'radar',
+    data: {
+        labels: ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'],
+        datasets: [{
+            label: 'My First Dataset',
+            data: [65, 59, 90, 81, 56, 55, 40],
+            fill: true,
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgb(255, 99, 132)',
+            pointBackgroundColor: 'rgb(255, 99, 132)',
+            pointBorderColor: '#fff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: 'rgb(255, 99, 132)'
+        }]
+    },
+    options: {
+        elements: {
+            line: {
+                borderWidth: 3
+            }
+        }
+    }
+});
+
+
+//this is the old js script
+/*document.addEventListener('DOMContentLoaded', function () {
     const data = {
         labels: [
             'Eating',
@@ -50,3 +78,4 @@ document.addEventListener('DOMContentLoaded', function () {
     );
 
 });
+*/
