@@ -89,6 +89,7 @@ your-repository/
 ├── database/           # SQL files for database setup
 └── README.md           # Project documentation
 
+```
 ## 🛠️ Technologies Used
 PHP: Server-side scripting language used for backend development.
 JavaScript: Client-side scripting language used for frontend interactions.
