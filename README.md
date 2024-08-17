@@ -89,12 +89,12 @@ your-repository/
 ├── database/           # SQL files for database setup
 └── README.md           # Project documentation
 
-🛠️ Technologies Used
+##🛠️ Technologies Used
 PHP: Server-side scripting language used for backend development.
 JavaScript: Client-side scripting language used for frontend interactions.
 HTML5 & CSS3: Markup and styling for the application.
 MySQL: Database management system for storing application data.
-🤝 Contributing
+##🤝 Contributing
 Contributions are welcome! Please follow these steps:
 
 Fork the repository.
@@ -102,7 +102,7 @@ Create a new branch (git checkout -b feature/your-feature).
 Commit your changes (git commit -m 'Add some feature').
 Push to the branch (git push origin feature/your-feature).
 Open a Pull Request.
-📄 License
+##📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 
