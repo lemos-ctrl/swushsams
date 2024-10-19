@@ -14,18 +14,19 @@ namespace BiometricsProject
 {
     public partial class enroll : capture
     {
-
         public delegate void OnTemplateEventHandler(DPFP.Template template);
-
         public event OnTemplateEventHandler OnTemplate;
 
-        private DPFP.Processing.Enrollment Enroller;
+        private DPFP.Processing.Enrollment EnrollerLeft;
+        private DPFP.Processing.Enrollment EnrollerRight;
+        private bool isLeftIndexCaptured = false;  // Track if left fingerprint has been captured.
 
         protected override void Init()
         {
             base.Init();
             base.Text = "Fingerprint Enrollment";
-            Enroller = new DPFP.Processing.Enrollment();
+            EnrollerLeft = new DPFP.Processing.Enrollment();
+            EnrollerRight = new DPFP.Processing.Enrollment();
             UpdateStatus();
         }
 
@@ -35,119 +36,122 @@ namespace BiometricsProject
             DPFP.FeatureSet features = ExtractFeatures(Sample, DPFP.Processing.DataPurpose.Enrollment);
 
             if (features != null)
+            {
                 try
                 {
-                    MakeReport("The fingerprint feature set was created.");
-                    Enroller.AddFeatures(features);
+                    if (!isLeftIndexCaptured)
+                    {
+                        MakeReport("Left Index Fingerprint feature set was created.");
+                        EnrollerLeft.AddFeatures(features);
+                    }
+                    else
+                    {
+                        MakeReport("Right Index Fingerprint feature set was created.");
+                        EnrollerRight.AddFeatures(features);
+                    }
                 }
                 finally
                 {
                     UpdateStatus();
 
-                    switch(Enroller.TemplateStatus)
+                    if (EnrollerLeft.TemplateStatus == DPFP.Processing.Enrollment.Status.Ready && !isLeftIndexCaptured)
                     {
-                        case DPFP.Processing.Enrollment.Status.Ready:
+                        // Left fingerprint captured, now move to the right
+                        isLeftIndexCaptured = true;
+                        MessageBox.Show("Left Index Fingerprint captured. Now capture the Right Index Fingerprint.");
+                        Stop();
+                        Start(); // Restart capturing process for the right index.
+                    }
+
+                    else if (EnrollerRight.TemplateStatus == DPFP.Processing.Enrollment.Status.Ready && isLeftIndexCaptured)
+                    {
+                        // Both fingerprints captured, proceed to enrollment
+                        OnTemplate(EnrollerLeft.Template);
+                        OnTemplate(EnrollerRight.Template);
+
+                        MemoryStream leftFingerprintData = new MemoryStream();
+                        MemoryStream rightFingerprintData = new MemoryStream();
+
+                        EnrollerLeft.Template.Serialize(leftFingerprintData);
+                        EnrollerRight.Template.Serialize(rightFingerprintData);
+
+                        leftFingerprintData.Position = 0;
+                        rightFingerprintData.Position = 0;
+
+                        byte[] leftBytes = new BinaryReader(leftFingerprintData).ReadBytes((Int32)leftFingerprintData.Length);
+                        byte[] rightBytes = new BinaryReader(rightFingerprintData).ReadBytes((Int32)rightFingerprintData.Length);
+
+                        try
+                        {
+                            string MyConnection = "datasource=localhost;username=root;password=";
+                            string Query = "SELECT * FROM swushsdb.dpfp_fingerprints WHERE UPPER(fname) = @fname";
+                            MySqlConnection MyConn = new MySqlConnection(MyConnection);
+                            MySqlCommand MyCommand = new MySqlCommand(Query, MyConn);
+
+                            MyCommand.Parameters.AddWithValue("@fname", FirstName.ToUpper());
+                            MyConn.Open();
+                            MySqlDataReader myReader = MyCommand.ExecuteReader();
+
+                            int count = 0;
+                            while (myReader.Read())
                             {
-                                int count = 0;
-
-                                OnTemplate(Enroller.Template);
-
-                                MemoryStream fingerprintData = new MemoryStream();
-                                Enroller.Template.Serialize(fingerprintData);
-                                fingerprintData.Position = 0;
-                                BinaryReader br = new BinaryReader(fingerprintData);
-
-
-                                byte[] bytes = br.ReadBytes((Int32)fingerprintData.Length);
-
-                                try
-                                {
-                                    string MyConnection = "datasource=localhost;username=root;password=";
-                                    string Query = "SELECT * FROM testdb.members WHERE UPPER(fname) = '" + FirstName.ToUpper() + "' ";
-                                    MySqlConnection MyConn = new MySqlConnection(MyConnection);
-                                    MySqlCommand MyCommand = new MySqlCommand(Query, MyConn);
-
-                                    MyConn.Open();
-
-
-                                    MySqlDataReader myReader = MyCommand.ExecuteReader();
-
-                                    while (myReader.Read())
-                                    {
-                                        count = count + 1;
-                                    }
-
-                                    MakeReport("Total Member Found: " + count);
-
-                                    if (count > 0)
-                                    {
-                                        MessageBox.Show("The Person you want to register is already exists.");
-                                        Stop();
-                                        Start();
-
-                                    }
-
-                                    else
-                                    {
-                                        try
-                                        {
-                                            string MyConnection1 = "datasource=localhost;username=root;password=";
-                                            string Query1 = "INSERT INTO testdb.members (fname,finger_print) VALUES ('" + FirstName + "', @finger) ";
-                                            MySqlConnection MyConn1 = new MySqlConnection(MyConnection1);
-                                            MySqlCommand MyCommand1 = new MySqlCommand(Query1, MyConn1);
-
-
-                                            MyCommand1.Parameters.AddWithValue("@finger", bytes).DbType = DbType.Binary;
-                                            MySqlDataReader MyReader1;
-                                            MyConn1.Open();
-                                            MyReader1 = MyCommand1.ExecuteReader();
-                                            MessageBox.Show(FirstName + " was successfully registered!", "Register Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
-                                            MyConn1.Close();
-                                            Stop();
-                                        }
-                                        catch (Exception ex)
-                                        {
-                                            MessageBox.Show(ex.Message);
-                                        }
-                                    }
-
-                                }
-                                catch (Exception ex)
-                                {
-                                    MessageBox.Show("Error :"+ ex.Message);
-                                }
-
-
-                                break;
+                                count++;
                             }
 
-                        case DPFP.Processing.Enrollment.Status.Failed:
+                            if (count > 0)
                             {
-                                Enroller.Clear();
+                                MessageBox.Show("The person you want to register already exists.");
                                 Stop();
-                                UpdateStatus();
-                                OnTemplate(null);
                                 Start();
-                                break;
                             }
+                            else
+                            {
+                                myReader.Close();
+
+                                // Insert the two fingerprints into the database
+                                string Query1 = "INSERT INTO swushsdb.dpfp_fingerprints (user_id, fname, left_index_fingerprint, right_index_fingerprint) VALUES (@user_id, @fname, @left_finger, @right_finger)";
+                                MySqlCommand MyCommand1 = new MySqlCommand(Query1, MyConn);
+                                MyCommand1.Parameters.AddWithValue("@user_id", UserID);
+                                MyCommand1.Parameters.AddWithValue("@fname", FirstName);
+                                MyCommand1.Parameters.AddWithValue("@left_finger", leftBytes).DbType = DbType.Binary;
+                                MyCommand1.Parameters.AddWithValue("@right_finger", rightBytes).DbType = DbType.Binary;
+
+                                MyCommand1.ExecuteNonQuery();
+                                MessageBox.Show(FirstName + " was successfully registered with both fingerprints!", "Register Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                MyConn.Close();
+                                Stop();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error: " + ex.Message);
+                        }
+                    }
+
+                    else if (EnrollerLeft.TemplateStatus == DPFP.Processing.Enrollment.Status.Failed || EnrollerRight.TemplateStatus == DPFP.Processing.Enrollment.Status.Failed)
+                    {
+                        EnrollerLeft.Clear();
+                        EnrollerRight.Clear();
+                        Stop();
+                        UpdateStatus();
+                        OnTemplate(null);
+                        Start();
                     }
                 }
+            }
         }
-
-
-
-
-
-
-
 
         private void UpdateStatus()
         {
-            SetStatus(String.Format("Fingerprint Sample Needed: {0}", Enroller.FeaturesNeeded));
+            if (!isLeftIndexCaptured)
+            {
+                SetStatus(String.Format("Left Fingerprint Samples Needed: {0}", EnrollerLeft.FeaturesNeeded));
+            }
+            else
+            {
+                SetStatus(String.Format("Right Fingerprint Samples Needed: {0}", EnrollerRight.FeaturesNeeded));
+            }
         }
-
-        
     }
 }

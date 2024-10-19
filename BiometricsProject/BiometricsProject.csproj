@@ -114,6 +114,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="attendance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="attendance.Designer.cs">
+      <DependentUpon>attendance.cs</DependentUpon>
+    </Compile>
     <Compile Include="capture.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,9 @@
     <Compile Include="verify.Designer.cs">
       <DependentUpon>verify.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="attendance.resx">
+      <DependentUpon>attendance.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="capture.resx">
       <DependentUpon>capture.cs</DependentUpon>
     </EmbeddedResource>
@@ -159,6 +168,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="verify.resx">
+      <DependentUpon>verify.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -181,6 +193,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Fingerprint-Recognition.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11019419_touch_fingerprint_identification_identity_biometric_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\swuphinmared.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

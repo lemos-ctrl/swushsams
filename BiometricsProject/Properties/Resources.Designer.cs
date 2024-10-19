@@ -63,6 +63,16 @@ namespace BiometricsProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fingerprint_icon {
+            get {
+                object obj = ResourceManager.GetObject("fingerprint_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Fingerprint_Recognition {
             get {
                 object obj = ResourceManager.GetObject("Fingerprint-Recognition", resourceCulture);
@@ -87,6 +97,16 @@ namespace BiometricsProject.Properties {
             get {
                 object obj = ResourceManager.GetObject("swubg2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon swuphinmared {
+            get {
+                object obj = ResourceManager.GetObject("swuphinmared", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
     }

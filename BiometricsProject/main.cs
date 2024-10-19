@@ -45,10 +45,18 @@ namespace BiometricsProject
             EnFrm.Show();
         }
 
+
+
         private void verify_btn_Click(object sender, EventArgs e)
         {
             verify VeFrm = new verify();
             VeFrm.Verify(Template);
+        }
+
+        private void attendance_btn_Click(object sender, EventArgs e)
+        {
+            attendance AtFrm = new attendance();
+            AtFrm.Show();
         }
     }
 }

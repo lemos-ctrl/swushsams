@@ -17,6 +17,7 @@ namespace BiometricsProject
 
         private DPFP.Capture.Capture Capturer;
         public string FirstName = "";
+        public string UserID = "";
 
         public capture()
         {
@@ -54,6 +55,14 @@ namespace BiometricsProject
             this.Invoke(new Function(delegate ()
             {
                 fname.Text = value;
+            }));
+        }
+
+        protected void SetUserID(string value)
+        {
+            this.Invoke(new Function(delegate ()
+            {
+                userid.Text = value;
             }));
         }
 
@@ -218,6 +227,9 @@ namespace BiometricsProject
             FirstName = fname.Text;
         }
 
-        
+        private void userid_TextChanged(object sender, EventArgs e)
+        {
+            UserID = userid.Text;
+        }
     }
 }

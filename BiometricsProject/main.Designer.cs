@@ -21,6 +21,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.enrol_btn = new System.Windows.Forms.Button();
             this.verify_btn = new System.Windows.Forms.Button();
+            this.attendance_btn = new System.Windows.Forms.Button();
             this.tableLayoutPanel.SuspendLayout();
             this.flowLayoutPanel.SuspendLayout();
             this.SuspendLayout();
@@ -48,10 +49,11 @@
             this.flowLayoutPanel.Controls.Add(this.label1);
             this.flowLayoutPanel.Controls.Add(this.enrol_btn);
             this.flowLayoutPanel.Controls.Add(this.verify_btn);
+            this.flowLayoutPanel.Controls.Add(this.attendance_btn);
             this.flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel.Location = new System.Drawing.Point(143, 94);
+            this.flowLayoutPanel.Location = new System.Drawing.Point(143, 52);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
-            this.flowLayoutPanel.Size = new System.Drawing.Size(506, 283);
+            this.flowLayoutPanel.Size = new System.Drawing.Size(506, 368);
             this.flowLayoutPanel.TabIndex = 1;
             this.flowLayoutPanel.WrapContents = false;
             // 
@@ -91,6 +93,18 @@
             this.verify_btn.UseVisualStyleBackColor = false;
             this.verify_btn.Click += new System.EventHandler(this.verify_btn_Click);
             // 
+            // attendance_btn
+            // 
+            this.attendance_btn.BackColor = System.Drawing.Color.LightSalmon;
+            this.attendance_btn.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold);
+            this.attendance_btn.Location = new System.Drawing.Point(3, 286);
+            this.attendance_btn.Name = "attendance_btn";
+            this.attendance_btn.Size = new System.Drawing.Size(500, 79);
+            this.attendance_btn.TabIndex = 3;
+            this.attendance_btn.Text = "Attendance";
+            this.attendance_btn.UseVisualStyleBackColor = false;
+            this.attendance_btn.Click += new System.EventHandler(this.attendance_btn_Click);
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -118,5 +132,6 @@
         private System.Windows.Forms.Button enrol_btn;
         private System.Windows.Forms.Button verify_btn;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button attendance_btn;
     }
 }
