@@ -32,6 +32,7 @@ namespace BiometricsProject
             }));
         }
 
+        /*
         protected void SetStatus(string status)
         {
             this.Invoke(new Function(delegate ()
@@ -40,6 +41,26 @@ namespace BiometricsProject
 
             }));
         }
+        */
+
+        protected void SetStatus(string status)
+        {
+            if (StatusLabel.InvokeRequired)
+            {
+                if (StatusLabel.IsHandleCreated)
+                {
+                    this.Invoke(new Action(() =>
+                    {
+                        StatusLabel.Text = status;
+                    }));
+                }
+            }
+            else
+            {
+                StatusLabel.Text = status;
+            }
+        }
+
 
         private void DrawPicture(Bitmap bitmap)
         {
@@ -127,6 +148,7 @@ namespace BiometricsProject
                 {
                     Capturer.StopCapture();
                     timer1.Dispose();
+                    SetPrompt("Capture Terminated.");
                 }
                 catch
                 {
@@ -200,11 +222,35 @@ namespace BiometricsProject
                 MakeReport("The Quality of the fingerprint sample is Poor:");
         }
 
-
+        /*
         private void start_scan_Click(object sender, EventArgs e)
         {
             timer1.Interval = 1000;
             timer1.Start();
+        }
+        */
+
+        private bool isScanning = false; // Flag to track scan state
+
+        private void start_scan_Click(object sender, EventArgs e)
+        {
+            if (isScanning)
+            {
+                // Stop the scan
+                timer1.Stop(); // Stop the timer
+                Stop(); // Call the Stop method for fingerprint processing
+                start_scan.Text = "Start Scan"; // Update button text
+                isScanning = false; // Update the state
+            }
+            else
+            {
+                // Start the scan
+                timer1.Interval = 1000; // Set the timer interval
+                timer1.Start(); // Start the timer
+                Start(); // Call the Start method for fingerprint processing
+                start_scan.Text = "Stop Scan"; // Update button text
+                isScanning = true; // Update the state
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -230,6 +276,11 @@ namespace BiometricsProject
         private void userid_TextChanged(object sender, EventArgs e)
         {
             UserID = userid.Text;
+        }
+
+        private void StatusText_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

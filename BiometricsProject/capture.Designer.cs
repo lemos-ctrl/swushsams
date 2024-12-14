@@ -66,6 +66,7 @@
             this.StatusText.Name = "StatusText";
             this.StatusText.Size = new System.Drawing.Size(458, 295);
             this.StatusText.TabIndex = 2;
+            this.StatusText.TextChanged += new System.EventHandler(this.StatusText_TextChanged);
             // 
             // StatusLabel
             // 

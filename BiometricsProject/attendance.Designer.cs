@@ -8,8 +8,6 @@ namespace BiometricsProject
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.PictureBox picFingerprint;
         private System.Windows.Forms.Label lblScanMessage;
-        private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Timer timer;
@@ -29,10 +27,9 @@ namespace BiometricsProject
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(attendance));
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblScanMessage = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.lblName = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
@@ -47,7 +44,7 @@ namespace BiometricsProject
             this.lblTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.Black;
-            this.lblTitle.Location = new System.Drawing.Point(400, 23);
+            this.lblTitle.Location = new System.Drawing.Point(411, 23);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(221, 32);
             this.lblTitle.TabIndex = 0;
@@ -59,45 +56,26 @@ namespace BiometricsProject
             this.lblScanMessage.BackColor = System.Drawing.Color.Transparent;
             this.lblScanMessage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblScanMessage.ForeColor = System.Drawing.Color.Black;
-            this.lblScanMessage.Location = new System.Drawing.Point(380, 230);
+            this.lblScanMessage.Location = new System.Drawing.Point(392, 230);
             this.lblScanMessage.Name = "lblScanMessage";
             this.lblScanMessage.Size = new System.Drawing.Size(267, 21);
             this.lblScanMessage.TabIndex = 2;
             this.lblScanMessage.Text = "Please scan your fingerprint to log in.";
             // 
-            // txtName
-            // 
-            this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtName.Enabled = false;
-            this.txtName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(450, 270);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(200, 22);
-            this.txtName.TabIndex = 3;
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.BackColor = System.Drawing.Color.Transparent;
-            this.lblName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.ForeColor = System.Drawing.Color.Black;
-            this.lblName.Location = new System.Drawing.Point(390, 270);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(55, 21);
-            this.lblName.TabIndex = 4;
-            this.lblName.Text = "Name:";
-            // 
             // lblStatus
             // 
-            this.lblStatus.AutoSize = true;
+            this.lblStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblStatus.BackColor = System.Drawing.Color.Transparent;
             this.lblStatus.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatus.ForeColor = System.Drawing.Color.Green;
-            this.lblStatus.Location = new System.Drawing.Point(450, 310);
+            this.lblStatus.Location = new System.Drawing.Point(379, 262);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(112, 21);
+            this.lblStatus.Size = new System.Drawing.Size(290, 65);
             this.lblStatus.TabIndex = 5;
             this.lblStatus.Text = "Status: Ready";
+            this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTime
             // 
@@ -105,7 +83,7 @@ namespace BiometricsProject
             this.lblTime.BackColor = System.Drawing.Color.Transparent;
             this.lblTime.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTime.ForeColor = System.Drawing.Color.Black;
-            this.lblTime.Location = new System.Drawing.Point(450, 340);
+            this.lblTime.Location = new System.Drawing.Point(458, 342);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(138, 21);
             this.lblTime.TabIndex = 6;
@@ -120,7 +98,7 @@ namespace BiometricsProject
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(480, 400);
+            this.btnExit.Location = new System.Drawing.Point(480, 372);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(100, 30);
             this.btnExit.TabIndex = 7;
@@ -147,15 +125,14 @@ namespace BiometricsProject
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.picFingerprint);
             this.Controls.Add(this.lblScanMessage);
-            this.Controls.Add(this.txtName);
-            this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.btnExit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "attendance";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Fingerprint Attendance Portal";
+            this.Text = "AMS Attendance Portal";
             this.Resize += new System.EventHandler(this.attendance_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.picFingerprint)).EndInit();
             this.ResumeLayout(false);
@@ -177,23 +154,20 @@ namespace BiometricsProject
             // Center the controls horizontally
             lblTitle.Left = (this.ClientSize.Width - lblTitle.Width) / 2;
             lblScanMessage.Left = (this.ClientSize.Width - lblScanMessage.Width) / 2;
-            txtName.Left = (this.ClientSize.Width - txtName.Width) / 2;
-            lblName.Left = txtName.Left - lblName.Width - 10;
+
             lblStatus.Left = (this.ClientSize.Width - lblStatus.Width) / 2;
             lblTime.Left = (this.ClientSize.Width - lblTime.Width) / 2;
             btnExit.Left = (this.ClientSize.Width - btnExit.Width) / 2;
             picFingerprint.Left = (this.ClientSize.Width - picFingerprint.Width) / 2;
 
             // Center the controls vertically
-            int totalHeight = lblTitle.Height + picFingerprint.Height + lblScanMessage.Height + txtName.Height + lblStatus.Height + lblTime.Height + btnExit.Height + 50; // Adjust for spacing
+            int totalHeight = lblTitle.Height + picFingerprint.Height + lblScanMessage.Height + lblStatus.Height + lblTime.Height + btnExit.Height + 50; // Adjust for spacing
             int startY = (this.ClientSize.Height - totalHeight) / 2;
 
             lblTitle.Top = startY;
             picFingerprint.Top = lblTitle.Bottom + 10;  // Adjust spacing as needed
             lblScanMessage.Top = picFingerprint.Bottom + 10;
-            lblName.Top = lblScanMessage.Bottom + 10;
-            txtName.Top = lblScanMessage.Bottom + 10;
-            lblStatus.Top = txtName.Bottom + 10;
+
             lblTime.Top = lblStatus.Bottom + 10;
             btnExit.Top = lblTime.Bottom + 10;
         }
